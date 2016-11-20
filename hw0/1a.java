@@ -1,3 +1,4 @@
+/* Creative Exercise 1a: Drawing a Triangle */
 public class Solution {
 	public static void main(String[] args) {
 		String s = "*";
