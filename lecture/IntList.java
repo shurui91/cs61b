@@ -2,6 +2,7 @@ public class IntList {
 	public int head;
 	public IntList tail;
 
+	/* define a list constructor, recursion style */
 	public IntList(int h, IntList t) {
 		head = h;
 		tail = t;
@@ -9,9 +10,11 @@ public class IntList {
 
 	/** Retuns the size of this IntList */
 	public int size() {
+		// if tail is empty, means there is only one element in the list
 		if (tail == null) {
 			return 1;
 		}
+		// or the length is 1 + tail.size()
 		return 1 + tail.size();
 	}
 
