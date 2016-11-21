@@ -8,9 +8,9 @@ public class IntList {
 		tail = t;
 	}
 
-	/** Retuns the size of this IntList */
+	/** Returns the size of this IntList */
 	public int size() {
-		// if tail is empty, means there is only one element in the list
+		/** if tail is empty, means there is only one element in the list */
 		if (tail == null) {
 			return 1;
 		}
@@ -18,7 +18,7 @@ public class IntList {
 		return 1 + tail.size();
 	}
 
-	/** Returns the size of this IntList. */
+	/** RIterate the whole linked list */
 	public int iterativeSize() {
 		IntList p = this;
 		int size = 0;
