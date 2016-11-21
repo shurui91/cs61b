@@ -36,7 +36,7 @@ public class IntList {
 		if (i == 0) {
 			return head;
 		}
-
+		// .get works for things like arrayList in Java (maybe)
 		return tail.get(i - 1);
 	}
 
