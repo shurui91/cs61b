@@ -11,7 +11,7 @@ public class IntList {
 		tail = t;
 	}
 
-	/** Retuns the size of this IntList */
+	/** Returns the size of this IntList */
 	public int size() {
 		if (tail == null) {
 			return 1;
@@ -34,13 +34,18 @@ public class IntList {
 	  * Returns ith item of this IntList. For 
 	  * simplicity, assume the item exists. */
 	public int get(int i) {
-		return 0;
-		/** your code here */
+		if (i == 0) {
+			return head;
+		}
+		return tail.get(i - 1);
 	}
 
 	public String toString() {
-		if (tail == null)
+		// if there is only one element
+		if (tail == null) {
 			return Integer.toString(head);
+		}
+		// if there is more than one element
 		return Integer.toString(head) + " " + tail.toString();
 	}
 
@@ -48,15 +53,24 @@ public class IntList {
 	  * each element incremented by x. L is not allowed
 	  * to change. */
 	public static IntList incrList(IntList L, int x) {
-		/* Your code here. */
-		return L;        
+		if (L == null) {
+			return null;
+		}
+		IntList incrementedList = new IntList(L.head + x, null);
+		incrementedList.tail = incrList(L.tail, x);
+		return incrementedList;
 	}
 
 	/** Returns an IntList identical to L, but with
 	  * each element incremented by x. Not allowed to use
 	  * the 'new' keyword. */
 	public static IntList dincrList(IntList L, int x) {
-		/* Your code here. */
+		if (L == null) {
+			return null;
+		}
+		L.head = L.head + x;
+		/* Don't actually care about the return value here. */
+		dincrList(L.tail, x);
 		return L;
 	}
 
@@ -65,12 +79,19 @@ public class IntList {
 		L.tail = new IntList(7, null);
 		L.tail.tail = new IntList(9, null);
 
+		System.out.print("L.size() is ");
 		System.out.println(L.size());
+		System.out.print("L.iterativeSize() is ");
 		System.out.println(L.iterativeSize());
+		System.out.print("L is ");
+		System.out.println(L);
 
 		// Test your answers by uncommenting. Or use the Visualizer.
-		// System.out.println(L.get(1));
-		// System.out.println(incrList(L, 3));
-		// System.out.println(dincrList(L, 3));        
+		System.out.print("get(1) is ");
+		System.out.println(L.get(1));
+		System.out.print("incrList(L, 3) is ");
+		System.out.println(incrList(L, 3));
+		System.out.print("dincrList(L, 3) is ");
+		System.out.println(dincrList(L, 3));        
 	}
 } 
